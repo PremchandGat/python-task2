@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing:border-box; }
+
+/* basic stylings ------------------------------------------ */
+#body                            { background:url(https://scotch.io/wp-content/uploads/2014/07/61.jpg); }
+.container              {
+  font-family:'Roboto';
+  width:600px;
+  margin:30px auto 0;
+  display:block;
+  background:#FFF;
+  padding:10px 50px 50px;
+}
+h2               {
+  text-align:center;
+  margin-bottom:50px;
+}
+h2 small {
+  font-weight:normal;
+  color:#888;
+  display:block;
+}
+.footer         { text-align:center; }
+.footer a  { color:#53B2C8; }
+
+/* form starting stylings ------------------------------- */
+.group                    {
+  position:relative;
+  margin-bottom:45px;
+}
+input                           {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus             { outline:none; }
+
+/* LABEL ======================================= */
+label                            {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label                {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar    { position:relative; display:block; width:300px; }
+.bar:before, .bar:after         {
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+        from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+        from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+        from { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #004882;
+}
+
+.box select {
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+  <form class="modal-content animate" action="http://192.168.43.168/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
+   <h2>Some Basic Commands<input type="radio" id="docker" name="operation" value="status" required /></h2>
+   <div class="box">
+  <select  id="status" name="status" >
+    <option value="dockerengine">Check docker is running or not</option>
+    <option value="container">Check all the container </option>
+    <option value="runningcontainer">Check all running container</option>
+    <option value="images">Check all local images</option>
+  </select>
+</div>
+</br></br>
+   <input type="submit">
+  </form>
+</div>
+
+
+
+<div class="container">
+  <form class="modal-content animate" action="http://192.168.43.168/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
+   <h2>Launch Docker Container <input type="radio" id="docker" name="operation" value="docker" required /></h2>
+    <div class="group">
+      <input type="text" name="image" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Image</label>
+    </div>
+    <div class="group">
+      <input type="text" name="name"  required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Container Name</label>
+    </div>
+    <h3>Expose Container</h3></br>
+    <div class="group">
+      <input type="text" name="port1" value="None" required  />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Base os port no.</label>
+    </div>
+    <div class="group">
+      <input type="text" name="port2" value="None" required  />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Container port no.</label>
+    </div>
+    <h3>Mount volume to container</h3></br>
+    <div class="group">
+      <input type="text" name="localpath" value="None" required  />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Base os path</label>
+    </div>
+    <div class="group">
+      <input type="text" name="dockerpath" value="None" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Container path</label>
+     </div>
+    <input type="submit">
+  </form>
+</div>
+
+
+<div class="container">
+  <form class="modal-content animate" action="http://192.168.43.168/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
+   <h2>Start/Stop Remove Container <input type="radio" id="docker" name="operation" value="start/stop" required /></h2>
+    <div class="group">
+      <input type="text" name="containername" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Container name</label>
+    </div>
+   <div class="box">
+  <select  id="status" name="status" >
+    <option value="stop">Stop Container</option>
+    <option value="start">Start Container</option>
+    <option value="remove">Remove Container</option>
+  </select>
+  </div>
+  </br></br>
+    <input type="submit">
+  </form>
+</div>
+
+
+
+<div class="container">
+  <form class="modal-content animate" action="http://192.168.43.168/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
+   <h2>Run Command on RedHat Base Os<input type="radio" id="docker" name="operation" value="cmd" required /></h2>
+    <div class="group">
+      <input type="text" name="cmd" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Write your Command</label>
+    </div>
+  </br></br>
+    <input type="submit">
+  </form>
+</div>
+
+
+<div class="container">
+  <form class="modal-content animate" action="http://192.168.43.168/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
+   <h2>Run Command on Container OS<input type="radio" id="docker" name="operation" value="containeros" required /></h2>
+    <div class="group">
+      <input type="text" name="osname" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Container name</label>
+    </div>
+    <div class="group">
+      <input type="text" name="cmd" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Write your Command</label>
+    </div>
+  </br></br>
+    <input type="submit">
+  </form>
+</div>
+</br></br>
+</body>
+</html>
