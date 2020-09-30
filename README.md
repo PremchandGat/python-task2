@@ -10,7 +10,7 @@
 3. Run commands on Base os RedHat
 4. Run Commands on docker container
 
-How to setup this ?
+## How to setup this ?
 # Step1
 Install httpd and Docker in RedHat or Centos<br />
 <b>dnf install httpd -y <br />
@@ -34,4 +34,5 @@ Copy page.html file to <b>/var/www/</b> directory<br />
 # Step3 
 Check your Linux system ip address<br />
 <b>ifconfig<br /></b>
-Now you need to change http://192.168.43.168 to your linux system ip address in index.html and page.html webpages
+Now you need to change http://192.168.43.168 to your linux system ip address in index.html and page.html webpages<br />
+use Password "prem"<br />    username "root"
