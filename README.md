@@ -1,6 +1,6 @@
 # Python-task2
 ![alt text](https://raw.githubusercontent.com/Premchandg278/python-task2/master/image.png)
-![alt text](https://raw.githubusercontent.com/Premchandg278/python-task2/master/image.png)
+![alt text](https://raw.githubusercontent.com/Premchandg278/python-task2/master/imagw1.jpg)
 How to setup this ?
 # Step1
 Install httpd and Docker in RedHat or Centos<br />
