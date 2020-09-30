@@ -66,7 +66,7 @@ elif uname == "root" and pwd == "prem" and operation == "containeros":
     output = subprocess.getoutput(cmd)
     print("<pre> {} </pre>".format(output))
 elif uname == "root" and pwd == "prem":
-    f = open("/var/www/my.html")
+    f = open("/var/www/page.html")
     print(f.read())
     f.close()
 else:
