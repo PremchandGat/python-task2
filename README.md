@@ -1,6 +1,15 @@
 # Python-task2
 ![Login page image](https://raw.githubusercontent.com/Premchandg278/python-task2/master/image.png)
 ![wep page](https://raw.githubusercontent.com/Premchandg278/python-task2/master/imagw1.jpg)
+
+
+
+## What we can do by this ?
+1. Launch docker container
+2. Stop/start and delete container
+3. Run commands on Base os RedHat
+4. Run Commands on docker container
+
 How to setup this ?
 # Step1
 Install httpd and Docker in RedHat or Centos<br />
