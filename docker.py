@@ -30,30 +30,27 @@ if  uname == "root" and pwd == "prem" and operation == "docker" :
     print(cmd)
     print("<pre>",output,"</pre>")
 elif uname == "root" and pwd == "prem" and operation == "status" :
-    status == data.getvalue("status")
-    print("this code run")
-    print(status)
+    status = data.getvalue("status")
     if status == "dockerengine":
         output = subprocess.getoutput("sudo systemctl status docker")
     elif status == "container":
-        output == subprocess.getoutput("sudo docker ps -a")
+        output = subprocess.getoutput("sudo docker ps -a")
     elif status == "runningcontainer":
-        output == subprocess.getoutput("sudo docker ps")
+        output = subprocess.getoutput("sudo docker ps")
     elif status == "images":
-        output == subprocess.getoutput("sudo docker images")
+        output = subprocess.getoutput("sudo docker images")
     else :
         output = "invalid"
     print("<pre>",output,"</pre>")
 elif uname == "root" and pwd == "prem" and operation == "start/stop":
     containername = data.getvalue("containername")
+    status = data.getvalue("status")
     if status == "stop":
         output = subprocess.getoutput("sudo docker container stop {}".format(containername))
     elif status == "start":
         output = subprocess.getoutput("sudo docker container start {}".format(containername))
     elif status == "remove":
         output = subprocess.getoutput("sudo docker container rm -f {}".format(containername))
-    elif status == "allremove":
-        output = subprocess.getoutpuy("sudo docker container rm -f $(docker ps -aq)")
     else:
         output = "Invalid"
     print("<pre>",output,"</pre>")
@@ -62,8 +59,17 @@ elif uname == "root" and pwd == "prem" and operation == "cmd" :
     cmd = "sudo {}".format(cmd)
     output = subprocess.getoutput(cmd)
     print("<pre>",output,"</pre>")
-
+elif uname == "root" and pwd == "prem" and operation == "containeros":
+    name = data.getvalue("osname")
+    cmdd = data.getvalue("cmd")
+    cmd = "sudo docker container exec {} {}".format(name,cmdd)
+    output = subprocess.getoutput(cmd)
+    print("<pre> {} </pre>".format(output))
 elif uname == "root" and pwd == "prem":
+
+    f = open("/var/www/html/my.html")
     print("succesfully login")
+    print(f.read())
+    f.close()
 else:
     print("<h1>Authentication Error !!!!!</h1>")
