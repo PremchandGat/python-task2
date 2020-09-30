@@ -3,231 +3,105 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* { box-sizing:border-box; }
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
 
-/* basic stylings ------------------------------------------ */
-body 				 { background:url(https://scotch.io/wp-content/uploads/2014/07/61.jpg); }
-.container 		{ 
-  font-family:'Roboto';
-  width:600px; 
-  margin:30px auto 0; 
-  display:block; 
-  background:#FFF;
-  padding:10px 50px 50px;
+body{
+        background-image: url("https://images.pexels.com/photos/891252/pexels-photo-891252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+        min-height:100vh;
+        font-family: 'Noto Sans', sans-serif;
 }
-h2 		 { 
-  text-align:center; 
-  margin-bottom:50px; 
+.text-center{
+        color:#fff;
+        text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
 }
-h2 small { 
-  font-weight:normal; 
-  color:#888; 
-  display:block; 
+.box{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+        border-radius:3px;
+        padding:70px 100px;
 }
-.footer 	{ text-align:center; }
-.footer a  { color:#53B2C8; }
+.input-container{
+        position:relative;
+        margin-bottom:25px;
+}
+.input-container label{
+        position:absolute;
+        top:0px;
+        left:0px;
+        font-size:16px;
+        color:#fff;
+    pointer-event:none;
+        transition: all 0.5s ease-in-out;
+}
+.input-container input{
+  border:0;
+  border-bottom:1px solid #555;
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+.input-container input:focus{
+ border:none;
+ outline:none;
+ border-bottom:1px solid #e74c3c;
+}
+.btn{
+        color:#fff;
+        background-color:#e74c3c;
+        outline: none;
+    border: 0;
+    color: #fff;
+        padding:10px 20px;
+        text-transform:uppercase;
+        margin-top:50px;
+        border-radius:2px;
+        cursor:pointer;
+        position:relative;
+}
+/*.btn:after{
+        content:"";
+        position:absolute;
+        background:rgba(0,0,0,0.50);
+        top:0;
+        right:0;
+        width:100%;
+        height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+        top:-12px;
+        font-size:12px;
 
-/* form starting stylings ------------------------------- */
-.group 			  { 
-  position:relative; 
-  margin-bottom:45px; 
-}
-input 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
-}
-input:focus 		{ outline:none; }
-
-/* LABEL ======================================= */
-label 				 {
-  color:#999; 
-  font-size:18px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:5px;
-  top:10px;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
-
-/* active state */
-input:focus ~ label, input:valid ~ label 		{
-  top:-20px;
-  font-size:14px;
-  color:#5264AE;
-}
-
-/* BOTTOM BARS ================================= */
-.bar 	{ position:relative; display:block; width:300px; }
-.bar:before, .bar:after 	{
-  content:'';
-  height:2px; 
-  width:0;
-  bottom:1px; 
-  position:absolute;
-  background:#5264AE; 
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
-.bar:before {
-  left:50%;
-}
-.bar:after {
-  right:50%; 
-}
-
-/* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-  width:50%;
-}
-
-/* HIGHLIGHTER ================================== */
-.highlight {
-  position:absolute;
-  height:60%; 
-  width:100px; 
-  top:25%; 
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
-}
-
-/* active state */
-input:focus ~ .highlight {
-  -webkit-animation:inputHighlighter 0.3s ease;
-  -moz-animation:inputHighlighter 0.3s ease;
-  animation:inputHighlighter 0.3s ease;
-}
-
-/* ANIMATIONS ================ */
-@-webkit-keyframes inputHighlighter {
-	from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
-@-moz-keyframes inputHighlighter {
-	from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
-@keyframes inputHighlighter {
-	from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
-
-
-
-
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #004882;
-}
-
-.box select {
-  background-color: #0563af;
-  color: white;
-  padding: 12px;
-  width: 250px;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
-}
-
-.box::before {
-  content: "\f13a";
-  font-family: FontAwesome;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  text-align: center;
-  font-size: 28px;
-  line-height: 45px;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: rgba(255, 255, 255, 0.1);
-  pointer-events: none;
-}
-
-.box:hover::before {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.box select option {
-  padding: 30px;
 }
 </style>
 </head>
 <body>
-<div class="container">  
-  <form class="modal-content animate" action="http://192.168.200.5/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
-   <h2>Launch Docker Container <input type="radio" id="docker" name="operation" value="docker"></h2>
-    <div class="group">      
-      <input type="text" name="image" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Image</label>
-    </div>
-    <div class="group">      
-      <input type="text" name="name"  required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Container Name</label>
-    </div>
-    <h3>Expose Container</h3></br>
-    <div class="group">      
-      <input type="text" name="port1" value="None" required  />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Base os port no.</label>
-    </div>
-    <div class="group">      
-      <input type="text" name="port2" value="None" required  />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Container port no.</label>
-    </div>
-    <h3>Mount volume to container</h3></br>
-    <div class="group">      
-      <input type="text" name="localpath" value="None" required  />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Base os path</label>
-    </div>
-    <div class="group">      
-      <input type="text" name="dockerpath" value="None" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Container path</label>
-     </div>
-    <input type="submit">
-  </form>
-</div>
-<div class="container">  
-  <form class="modal-content animate" action="http://192.168.200.5/cgi-bin/docker.py?pwd=prem&uname=root&" method="post">
-   <h2>Some Basic Commands<input type="radio" id="docker" name="operation" value="status"></h2>
-   <div class="box">
-  <select  id="status" name="status" >
-    <option value="dockerengine">Check docker is running or not</option>
-    <option value="container">Check all the container </option>
-    <option value="runningcontainer">Check all running container</option>
-    <option value="images">Check all local images</option>
-  </select>
-</div>
-</br></br>
-   <input type="submit">
-  </form>
+<div class="box">
+        <form class="modal-content animate" action="http://192.168.43.168/cgi-bin/docker.py" method="post">
+                <span class="text-center">login</span>
+        <div class="input-container">
+                <input type="text" name="uname" required=""/>
+                <label>Username</label>
+        </div>
+        <div class="input-container">
+                <input type="password" name="pwd" required=""/>
+                <label>Password</label>
+        </div>
+                <button type="submit" class="btn">submit</button>
+</form>
 </div>
 </body>
 </html>
